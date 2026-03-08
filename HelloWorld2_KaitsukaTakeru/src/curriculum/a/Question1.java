@@ -3,12 +3,13 @@ package curriculum.a;
 public class Question1 {
 
 	public static void main(String[] args) {
-		// 1. int 型の変数 x に 15 を代入
-        int x = 15;
+		// 元の文章を代入
+        String text = "私はJavaが好きです。Javaは楽しい！";
 
-        // 2. x が 10 以上なら "OK"、そうでなければ "NG" を判定して表示
-        String message = (x >= 10) ? "OK" : "NG";
+        // 「Java」 を 「Python」 に置き換える
+        String newText = text.replace("Java", "Python");
 
-        System.out.println(message);	
+        // 結果表示
+        System.out.println(newText);
 	}
 }
