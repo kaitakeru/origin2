@@ -3,11 +3,12 @@ package curriculum.b;
 public class Question3 {
 
 	public static void main(String[] args) {
-		int i = 1; //スタート
+		int i = 2; // 2からスタート
 
-        while (i <= 10) {
+        while (i <= 20) {
             System.out.println(i);
-            i++; // 数字を1増やす
+            
+            i += 2; // 2ずつ増やす
         }
 	}
 }
