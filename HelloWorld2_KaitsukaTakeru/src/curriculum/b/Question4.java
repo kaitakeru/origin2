@@ -5,22 +5,31 @@ public class Question4 {
 	public static void main(String[] args) {
 		// 1. 2次元配列を用意
         int[][] array = {
-            {10, 20, 30},
-            {40, 50, 60},
-            {70, 80, 90}
+            {12, 15, 8},
+            {6, 19, 25},
+            {30, 2, 10}
         };
-        
-        // 2. 合計値を入れる変数を用意
-        int totalSum = 0;
-        
-        // 3. 拡張for文で全て足す
-        for (int[] row : array) {      // 各「行」を取り出す
+
+        // 2. 最大値と最小値を、（[0][0]）でセット
+        int max = array[0][0];
+        int min = array[0][0];
+
+        // 3. 拡張for文で全要素を比較
+        for (int[] row : array) {      // 各行を取り出す
             for (int num : row) {      // 行の中の各要素を取り出す
-                totalSum += num;       // 合計に加算
+                // 最大値
+                if (num > max) {
+                    max = num;
+                }
+                // 最小値
+                if (num < min) {
+                    min = num;
+                }
             }
         }
-        
-        // 4. 結果を表示
-        System.out.println("すべての要素の合計値は: " + totalSum);
+
+        // 4. 結果表示
+        System.out.println("最大値は: " + max);
+        System.out.println("最小値は: " + min);
             }
 	}
