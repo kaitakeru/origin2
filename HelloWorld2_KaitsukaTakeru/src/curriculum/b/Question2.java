@@ -7,20 +7,14 @@ public class Question2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("0から100のスコアを入力してください: ");
-        int score = sc.nextInt();
+		System.out.print("何か入力してください: ");
 
-        if (score >= 90) {
-            System.out.println("優");
-        } else if (score >= 70) {
+        String input = sc.nextLine();
 
-            System.out.println("良");
-        } else if (score >= 50) {
-
-            System.out.println("可");
+        if (input == null || input.isEmpty()) {
+            System.out.println("入力が無効です");
         } else {
-
-            System.out.println("不可");
+            System.out.println("入力された文字: " + input);
         }
         sc.close();
 		}
