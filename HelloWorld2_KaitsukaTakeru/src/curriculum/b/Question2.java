@@ -8,17 +8,13 @@ public class Question2 {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("数値を入力してください: ");
-        // 1. コンソール入力から数値を受け取る
-        int num = sc.nextInt();
+        int value = sc.nextInt();
 
-        // 2. 条件分岐で判定
-        if (num > 0) {
-            System.out.println("正の数です");
-        } else if (num == 0) {
-            System.out.println("0 です");
+        if (value % 2 == 0) {
+            System.out.println("偶数です");
         } else {
-            // 0より大きいでもなく、0でもない場合（＝0より小さい）
-            System.out.println("負の数です");
+        	
+            System.out.println("奇数です");
         }
         sc.close();
 		}
