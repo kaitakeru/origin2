@@ -3,10 +3,13 @@ package curriculum.b;
 public class Question2 {
 
 	public static void main(String[] args) {
-		int score = 75; 
+		int age = 25; 
 
-		if (score >= 60) {
-		    System.out.println("合格です！"); 
+		if (age >= 20 && age <= 30) {
+		    System.out.println("適正年齢です");
+		} 
+		else {
+		    System.out.println("対象外です");
+			}
 		}
 	}
-}
