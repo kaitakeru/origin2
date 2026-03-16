@@ -7,14 +7,20 @@ public class Question2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("数値を入力してください: ");
-        int value = sc.nextInt();
+		System.out.print("0から100のスコアを入力してください: ");
+        int score = sc.nextInt();
 
-        if (value % 2 == 0) {
-            System.out.println("偶数です");
+        if (score >= 90) {
+            System.out.println("優");
+        } else if (score >= 70) {
+
+            System.out.println("良");
+        } else if (score >= 50) {
+
+            System.out.println("可");
         } else {
-        	
-            System.out.println("奇数です");
+
+            System.out.println("不可");
         }
         sc.close();
 		}
