@@ -1,18 +1,32 @@
 package curriculum.b;
 
+import java.util.Scanner;
+
 public class Question2 {
 
 	public static void main(String[] args) {
-		int age = 18;
+		Scanner sc = new Scanner(System.in);
 
-		if (age >= 20) {
-		    System.out.println("成人です");
-		
-		} else if (age >= 13) {
-		    System.out.println("ティーンエイジャーです");
-		
-		} else {
-		    System.out.println("子供です");
-			}
+        System.out.print("1つ目の数値を入力してください: ");
+        int x = sc.nextInt(); // 3. 入力を受け取る
+
+        System.out.print("2つ目の数値を入力してください: ");
+        int y = sc.nextInt();
+
+        System.out.print("3つ目の数値を入力してください: ");
+        int z = sc.nextInt();
+
+        // 最大値の判定ロジック
+        int max = x;
+        if (y > max) {
+            max = y;
+        }
+        if (z > max) {
+            max = z;
+        }
+
+        System.out.println("一番大きい数値は " + max + " です");
+
+        sc.close();
 		}
 	}
