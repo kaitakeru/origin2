@@ -1,54 +1,35 @@
 package curriculum.b;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Question3 {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
+//Q1
+		for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+		}
+//Q2
+		for (int i = 2; i <= 20; i += 2) {
+		    System.out.println(i);
+		}
+//Q3
+		for (int i = 10; i >= 1; i--) {
+		    System.out.println(i);
+		}
+//Q4
+		int sum = 0;
 
-        System.out.println("商品を入力してください（「、」区切り）:");
-        String inputLine = scanner.nextLine();
-
-        // 入力された値を「、」で区切って配列に格納
-        String[] items = inputLine.split("、");
-
-        // テレビとディスプレイの合計を11にするためのランダム値生成
-        int tvStock = random.nextInt(12); // 0～11
-        int displayStock = 11 - tvStock;
-
-        // 拡張for文
-        for (String item : items) {
-        	
-            String trimmedItem = item.trim();
+        for (int i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        System.out.println("1から100までの合計は: " + sum);
+//Q5
+		for (int i = 1; i <= 5; i++) {
             
-            // Switch文
-            switch (trimmedItem) {
-                case "パソコン":
-                case "冷蔵庫":
-                case "扇風機":
-                case "洗濯機":
-                case "加湿器":
-                    // 条件演算子を使用、残り台数を生成・表示
-                    //普通のif文は使用不可、ここで完結
-                    System.out.println(trimmedItem + "の残り台数は " + random.nextInt(12) + "台です");
-                    break;
-
-                case "テレビ":
-                case "ディスプレイ":
-                    // テレビとディスプレイは続けて書き、条件演算子で出力値を変更
-                    int stock = trimmedItem.equals("テレビ") ? tvStock : displayStock;
-                    System.out.println(trimmedItem + "の残り台数は " + stock + "台です");
-                    break;
-
-                default:
-                    // 指定の商品以外の場合
-                    System.out.println("『 " + trimmedItem + " 』は指定の商品ではありません");
-                    break;
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
             }
-        }
-        scanner.close();
-        }
+            
+            	System.out.println();
+		}
 	}
+}
