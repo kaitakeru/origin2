@@ -1,0 +1,39 @@
+バトル開始!
+先攻: TKR (SP: 9)
+
+--- Turn 1 ---
+TKR の攻撃！ Daemon に 14 のダメージ！
+Daemon の残りHP: 71
+Daemon の攻撃！ TKR に 12 のダメージ！
+TKR の残りHP: 68
+--- Turn 2 ---
+TKR の攻撃！ Daemon に 14 のダメージ！
+Daemon の残りHP: 57
+Daemon の攻撃！ TKR に 12 のダメージ！
+TKR の残りHP: 56
+--- Turn 3 ---
+TKR の攻撃！ Daemon に 14 のダメージ！
+Daemon の残りHP: 43
+Daemon の攻撃！ TKR に 12 のダメージ！
+TKR の残りHP: 44
+--- Turn 4 ---
+TKR の攻撃！ Daemon に 14 のダメージ！
+Daemon の残りHP: 29
+Daemon の攻撃！ TKR に 12 のダメージ！
+TKR の残りHP: 32
+--- Turn 5 ---
+TKR の攻撃！ Daemon に 14 のダメージ！
+Daemon の残りHP: 15
+Daemon の攻撃！ TKR に 12 のダメージ！
+TKR の残りHP: 20
+--- Turn 6 ---
+TKR の攻撃！ Daemon に 14 のダメージ！
+Daemon の残りHP: 1
+Daemon の攻撃！ TKR に 12 のダメージ！
+TKR の残りHP: 8
+--- Turn 7 ---
+TKR の攻撃！ Daemon に 14 のダメージ！
+Daemon の残りHP: 0
+
+TKR の勝利！
+
