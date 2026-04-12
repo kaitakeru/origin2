@@ -9,13 +9,13 @@ import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
-class Character {
+class Entity {
 	String name;
 	int hp;
 	int at;
 	int sp;
 
-	public Character(String name, int hp, int at, int sp) {
+	public Entity(String name, int hp, int at, int sp) {
 		this.name = name;
 		this.hp = hp;
 		this.at = at;
@@ -30,56 +30,54 @@ class Character {
 public class Question7 {
 	private static final String LOG_FILE = "battle_log.txt";
 	private static final String DAEMON_FILE = "daemon_status.txt";
+	private static final Random rand = new Random();
 
 	public static void main(String[] args) {
-		System.out.println("現在の作業ディレクトリ: " + System.getProperty("user.dir"));
-
 		try (Scanner sc = new Scanner(System.in)) {
-			Random rand = new Random();
-
 			System.out.print("Playerの名前を入力してください: ");
 			String playerName = sc.nextLine();
 
-			Character player = new Character(playerName, rand.nextInt(51) + 50, rand.nextInt(11) + 10,
-					rand.nextInt(10) + 1);
+			Entity player = new Entity(
+					playerName, 
+					rand.nextInt(51) + 50, 
+					rand.nextInt(11) + 10,
+					rand.nextInt(10) + 1
+			);
 
-			Character daemon = loadDaemon();
+			Entity daemon = loadDaemon();
 			if (daemon == null) {
 				System.out.println("Daemonデータの読み込みに失敗しました。");
 				return;
 			}
+
 			System.out.println("\n--- ステータス ---");
 			showStatus(player);
 			showStatus(daemon);
 			System.out.println("----------------\n");
 
 			executeBattle(player, daemon);
-
 		}
 	}
 
-	public static Character loadDaemon() {
+	public static Entity loadDaemon() {
 		try (BufferedReader br = new BufferedReader(new FileReader(DAEMON_FILE))) {
 			String name = br.readLine();
 			int hp = Integer.parseInt(br.readLine());
 			int at = Integer.parseInt(br.readLine());
 			int sp = Integer.parseInt(br.readLine());
-			return new Character(name, hp, at, sp);
-		} catch (IOException e) {
-		    System.out.println("ファイルが見つかりません: " + e.getMessage());
-		    return null;
-		} catch (NumberFormatException e) {
-		    System.out.println("ファイルの数値が正しくありません。");
-		    return null;
+			return new Entity(name, hp, at, sp);
+		} catch (IOException | NumberFormatException e) {
+			System.out.println("読み込みエラー: " + e.getMessage());
+			return null;
 		}
 	}
 
-	public static void executeBattle(Character p1, Character p2) {
-		Random rand = new Random();
+	public static void executeBattle(Entity p1, Entity p2) {
 		StringBuilder log = new StringBuilder();
 		log.append("バトル開始!\n");
 
-		Character first, second;
+		Entity first, second;
+		
 		if (p1.sp > p2.sp) {
 			first = p1;
 			second = p2;
@@ -102,8 +100,7 @@ public class Question7 {
 		while (p1.isAlive() && p2.isAlive()) {
 			log.append("--- Turn " + turn + " ---\n");
 			attack(first, second, log);
-			if (!second.isAlive())
-				break;
+			if (!second.isAlive()) break;
 			attack(second, first, log);
 			turn++;
 		}
@@ -114,7 +111,7 @@ public class Question7 {
 		saveLog(log.toString());
 	}
 
-	private static void attack(Character attacker, Character defender, StringBuilder log) {
+	private static void attack(Entity attacker, Entity defender, StringBuilder log) {
 		defender.hp -= attacker.at;
 		log.append(attacker.name + " の攻撃！ " + defender.name + " に " + attacker.at + " のダメージ！\n");
 		log.append(defender.name + " の残りHP: " + Math.max(0, defender.hp) + "\n");
@@ -129,7 +126,7 @@ public class Question7 {
 		}
 	}
 
-	private static void showStatus(Character c) {
-		System.out.println(c.name + " [HP:" + c.hp + " AT:" + c.at + " SP:" + c.sp + "]");
+	private static void showStatus(Entity e) {
+		System.out.println(e.name + " [HP:" + e.hp + " AT:" + e.at + " SP:" + e.sp + "]");
 	}
 }
