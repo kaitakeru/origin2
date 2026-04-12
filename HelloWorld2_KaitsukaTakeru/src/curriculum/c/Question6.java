@@ -22,13 +22,13 @@ public class Question6 {
 			System.out.println("あなたの手: " + player.getHandName());
 			System.out.println("CPUの手: " + cpu.getHandName());
 
-			int result = (player.getHand() - cpu.getHand() + 3) % 3;
+			int result = (cpu.getHand() - player.getHand() + 3) % 3;
 
-			if (result == 2) {
+			if (result == 1) {
 				printMessage(player.getHand());
 				System.out.println("あなたの勝ち！");
-				break; // ループ終了
-			} else if (result == 1) {
+				break;
+			} else if (result == 2) {
 				System.out.println("あなたの負け…もう一度！");
 			} else {
 				System.out.println("あいこ！もう一度！");
